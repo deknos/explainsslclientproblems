@@ -7,6 +7,7 @@ Currently this is done in Python, but since Python uses OpenSSL for managing SSL
 
 * The problem is, that Python usually uses OpenSSL for Certificates. And this may be kind of sparse with information what the current problem is.
 * At least with python i want to evaluate, WHICH failures modes we wanna play for, and perhaps look at Go, if that provides more information
+* i am only adding a readme because otherwise bots will complain
 
 ## TODO
 
