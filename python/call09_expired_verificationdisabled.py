@@ -24,7 +24,7 @@ def test_disabled_verification_with_warning():
         requests.post(badssl_startsite, verify = https_verification)
     except Exception as e:
         print("There was an error requesting " + badssl_startsite)
-        print("Error:"+e)
+        print("Error:"+str(e))
         return
     print("Request returned successfully")
 

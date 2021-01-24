@@ -58,7 +58,7 @@ def test_suppressed_verification_warning():
             requests.get(badssl_startsite, verify = https_verification)
         except Exception as e:
             print("There was an error requesting " + badssl_startsite)
-            print("Error:"+e)
+            print("Error:"+str(e))
             return
     print("Request returned successfully")
 

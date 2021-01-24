@@ -3,12 +3,11 @@
 import requests
 from urllib3.exceptions import InsecureRequestWarning
 
-# site: https://revoked.badssl.com
-# state should be: bad, revoked certificate
+# site: https://untrusted-root.badssl.com
+# state should be: bad, certificate should be expired
 # verification: disabled
-# comment: suppress warning about disabled verification via package configuration
 
-badssl_startsite = "https://revoked.badssl.com"
+badssl_startsite = "https://untrusted-root.badssl.com"
 https_verification = False
 
 def verification_on():
