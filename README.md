@@ -11,11 +11,7 @@ Currently this is done in Python, but since Python uses OpenSSL for managing SSL
 
 ## TODO
 
-* more error modes to test for:
- * pinned certificates, good and badssl
- * https://dh480.badssl.com/
- * https://untrusted-root.badssl.com/
- * https://incomplete-chain.badssl.com/
+* could write more examples and how to circumvent them, if possible
 * write a documentation block in each file for explaining what to learn
 * clean up variable/function names
 
