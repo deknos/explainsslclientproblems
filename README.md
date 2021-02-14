@@ -12,7 +12,6 @@ Currently this is done in Python, but since Python uses OpenSSL for managing SSL
 ## TODO
 
 * more error modes to test for:
- * self signed certificates, good and bad
  * pinned certificates, good and badssl
  * https://dh480.badssl.com/
  * https://untrusted-root.badssl.com/
