@@ -25,3 +25,14 @@ Currently this is done in Python, but since Python uses OpenSSL for managing SSL
 * How do we explain (for normal application programers), that it is very hard to upright impossible to differentiate between several security management problems
 * prioritization of the severity of badssl-problems
 * pictures would be super (wrong host, certificate lifetime)
+
+## other ssl checking and example stuff
+
+* Offices and public Institutions and their SSL State: https://https.jetzt/
+* ssl checkers 
+ * https://www.ssllabs.com/ssltest/analyze.html
+ * https://www.sslshopper.com/ssl-checker.html
+ * https://github.com/narbehaj/ssl-checker
+ * https://github.com/drwetter/testssl.sh
+ * https://github.com/ssllabs/ssllabs-scan
+* https explanation http://www.moserware.com/2009/06/first-few-milliseconds-of-https.html
