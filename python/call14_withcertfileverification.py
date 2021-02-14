@@ -10,8 +10,10 @@ badssl_startsite = "https://self-signed.badssl.com"
 https_verification = True
 cert_file = "/tmp/selfsigned4.crt"
 
-# other potential solutions: https://stackoverflow.com/a/58246407 or
-# https://www.electricmonk.nl/log/2018/06/02/ssl-tls-client-certificate-verification-with-python-v3-4-sslcontext/
+# other potential solutions: 
+# * https://stackoverflow.com/a/58246407 or
+# * https://www.electricmonk.nl/log/2018/06/02/ssl-tls-client-certificate-verification-with-python-v3-4-sslcontext/
+# * https://gist.github.com/gdamjan/55a8b9eec6cf7b771f92021d93b87b2c
 
 #def get_certificate(host, port, cert_file_pathname):
 #    with requests.get("https://" + host, verify = False) as response:
