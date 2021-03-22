@@ -1,0 +1,40 @@
+python/call01_standardcall.py                               | Überprüfung ist an    | Keine Warnung     | badssl.com wird mit Zertifikatsüberprüfung angesprochen                   | Überprüfung ist erfolgreich   | Anfrage erfolgreich ausgeführt        | Keine Gefahr
+python/call02_verificationdisabled.py                       | Überprüfung ist aus   | Warnung ist an    | badssl.com wird ohne Zertifikatsüberprüfung angesprochen                  | keine Überprüfung             | Anfrage erfolgreich ausgeführt        | 
+python/call03_suppressverificationwarning.py                | Überprüfung ist aus   | Keine Warnung     | badssl.com wird ohne Zertifikatsüberprüfung angesprochen                  | keine Überprüfung             | Anfrage erfolgreich ausgeführt        |
+python/call04_callwronghostname_verificationdisabled.py     | Überprüfung ist aus   | Keine Warnung     | wrong.host.badssl.com wird ohne Zertifikatsüberprüfung angesprochen       | keine Überprüfung             | Anfrage erfolgreich ausgeführt        |
+python/call05_alternativeverificationsupression.py          | Überprüfung ist aus   | Keine Warnung     | revoked.badssl.com wird ohne Zertifikatsüberprüfung angesprochen          | keine Überprüfung             | Anfrage erfolgreich ausgeführt        |
+python/call06_wronghost_verificationenabled.py              | Überprüfung ist an    | Warnung ist an    | wrong.host.badssl.com wird mit Zertifikatsüberprüfung angesprochen        | Überprüfung schlug fehl       | Anfrage nicht ausgeführt              | Keine Gefahr
+python/call07_expired_verificationenabled.py                | Überprüfung ist an    | Keine Warnung     | expired.badssl.com wird mit Zertifikatsüberprüfung angesprochen           | Überprüfung schlug fehl       | Anfrage nicht ausgeführt              | Keine Gefahr
+python/call08_selfsigned.py                                 | Überprüfung ist an    | Keine Warnung     | badssl.com wird mit Zertifikatsüberprüfung angesprochen                   | Überprüfung schlug fehl       | Anfrage nicht ausgeführt              | Keine Gefahr
+python/call09_expired_verificationdisabled.py               | Überprüfung ist aus   | Keine Warnung     | expired.badssl.com wird ohne Zertifikatsüberprüfung angesprochen          | keine Überprüfung             | Anfrage erfolgreich ausgeführt        | 
+python/call10_exceptionchainonwronghost.py                  | help tool: showing exception chains 
+python/call11_untrustedroot_verificationdisabled.py         | Überprüfung ist aus   | Keine Warnung     | untrusted-root.badssl.com wird ohne Zertifikatsüberprüfung angesproche    | Keine überprüfung             | Anfrage erfolgreich ausgeführt        |
+python/call12_withcertfileverification.py                   | Überprüfung ist an    | Keine Warnung     | self-signed.badssl.com wird mit Zertifikatsüberprüfung angesprochen       | Überprüfung wird ausgeführt   | Anfrage wird erfolgreich ausgeführt   | 
+python/call13_rc4handshakefailure.py                        | Überprüfung ist aus   | Warnung           | rc4.badssl.com                                                            | Überprüfung schlug fehl       | Anfrage nicht ausgeführt              | 
+
+
+
+Filename ;  Check for good https ; warning if anythings broken ; what is call ; validation is successful ; request is executed | what's the risk
+
+
+python/call01_standardcall.py                               | Keine Gefahr
+python/call02_verificationdisabled.py                       | Warnung wird angezeigt, aber hackbar, wenigstens wissen wir, dass das gefährlich ist
+python/call03_suppressverificationwarning.py                | Keine Warnung, wir wissen nicht, wann solche aufrufe passieren
+python/call04_callwronghostname_verificationdisabled.py     | https://cwe.mitre.org/data/definitions/297.html -> redirection or spoofing attack to allow a malicious host with a valid certificate to provide data
+python/call05_alternativeverificationsupression.py          | Deaktivierte Überprüfung führt dazu, dass ein zurückgezogenes Zertifikat nicht abgelehnt wird
+python/call06_wronghost_verificationenabled.py              | Host wird überprüft, und der falsche wird abgelehnt (siehe call05)
+python/call07_expired_verificationenabled.py                | Keine Gefahr, abgelaufenes Zertifikat wird vom Client nicht akzeptiert
+python/call08_selfsigned.py                                 | Keine Gefahr, selfsigned zertifikat, das lokal nicht vorliegt, wird nicht akzeptiert
+python/call09_expired_verificationdisabled.py               | Abgelaufenes Zertifikat wird akzeptiert: (Zertifikat ist so alt, dass es geknackt wurde, abgelaufenes Zertifikat wurde vom Hacker auf Festplatte gefunden)
+python/call10_exceptionchainonwronghost.py                  | Helper: Zeigt StackTrace für WrongHost Destination
+python/call11_untrustedroot_verificationdisabled.py         | Wir haben das Root Zertifikat gar nicht im Certificate Store. Selbst wenn das Host-Zertifikat gut aussieht, kann es von jemand anderem signiert worden sein, und der kann unseren traffic lesen, weil er MitM spielt
+python/call12_withcertfileverification.py                   | self signed certificates means you basically run your on PKI-CA (Verisign) and if you do not right, you risk loosing all certificate/ssl advantages.
+python/call13_rc4handshakefailure.py                        | No Risk, but extremely outdated Cipher
+
+
+Problem Classes
+
+wrong certificate details
+broken crypto
+SelfSigned/untrusted chain
+
